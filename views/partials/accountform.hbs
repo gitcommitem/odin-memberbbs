@@ -1,0 +1,29 @@
+{{#if isLogin}}
+<form class="vflex" action="/login" method="POST">
+  <div class="vflex">
+    <label>Username</label>
+    <input type="text">
+  </div>
+  <div class="vflex">
+    <label>Password</label>
+    <input type="password">
+  </div>
+  <button type="submit">Log In</button>
+</form>
+{{else}}
+<form class="vflex" action="/sign-up" method="POST">
+  <div class="vflex">
+    <label>Username</label>
+    <input type="text">
+  </div>
+  <div class="vflex">
+    <label>Password</label>
+    <input type="password">
+  </div>
+  <div class="vflex">
+    <label>Confirm Password</label>
+    <input type="password">
+  </div>
+  <button type="submit">Create account</button>
+</form>
+{{/if}}

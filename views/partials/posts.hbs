@@ -1,0 +1,21 @@
+<section class="post-cont">
+  {{#each post}}
+  <div class="post">
+    {{#if isMember}}
+    <p>{{this.author}}</p>
+    {{else}}
+    <p>Anonymous</p>
+    {{/if}}
+    {{#if isAdmin}}
+    <form action="/delete" method="POST">
+      <input type="hidden" value={{this.id}}>
+      <button type="submit">Delete</button>
+    </form> 
+    {{/if}}
+    <p>{{this.body}}</p>
+    <p>{{this.date}}</p>
+  </div>
+  {{else}}
+  <p>No posts found.</p>
+  {{/each}}
+</section>
