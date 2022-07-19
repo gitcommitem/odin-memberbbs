@@ -25,9 +25,7 @@ exports.post_new_post = [
 			const stringError = JSON.stringify(errors.array());
 			const parsedError = JSON.parse(stringError);
 
-			res.render('/', {
-				errors: parsedError
-			});
+			res.redirect('/');
 			return;
 		} else {
 			// Data from form is valid. Save account.
