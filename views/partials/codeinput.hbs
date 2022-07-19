@@ -4,7 +4,7 @@
 {{#unless user.isAdmin}}
 <section class="verification">
   <form class="vflex" action="/verify-admin" method="POST">
-  {{#if failVerify}}
+  {{#if failVerifyAdmin}}
   <p>Incorrect code.</p>
   {{/if}}
     <label for="code">Enter admin code</label>
@@ -13,6 +13,19 @@
   </form>
 </section>
 {{/unless}}
+{{/if}}
+
+{{#if user}}
+<section class="verification">
+  <form class="vflex" action="/delete-account" method="POST">
+    {{#if failVerifyDelete}}
+    <p>Input does not match {{user.username}}</p>
+    {{/if}}
+    <label>Type <span class="bold">{{user.username}}</span> in order to delete your account</label>
+    <input type="text" name="code" placeholder={{user.username}}>
+    <button type="submit">🚨 Delete account 🚨</button>
+  </form>
+</section>
 {{/if}}
 
 {{else}}

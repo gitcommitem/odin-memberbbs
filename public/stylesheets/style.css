@@ -73,6 +73,10 @@ p.timestamp {
 	opacity: 0.6;
 }
 
+span.bold {
+	font-weight: 800;
+}
+
 /* General Components */
 nav {
 	justify-content: space-between;

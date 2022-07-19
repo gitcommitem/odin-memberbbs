@@ -1,4 +1,5 @@
 var Account = require('../models/account');
+var Post = require('../models/post');
 
 const { body, validationResult } = require('express-validator');
 const { request } = require('../app');
@@ -81,6 +82,53 @@ exports.verify_isAdmin_post = [
 					}
 					//Redirect to index upon success
 					res.redirect('/');
+				});
+			}
+		}
+	}
+];
+
+exports.verify_deleteAccount_post = [
+	// Validate and sanitize fields.
+	body('code', 'Input must not be empty')
+		.trim()
+		.isLength({ min: 1 })
+		.escape(),
+
+	// Process request after validation and sanitization.
+	(req, res, next) => {
+		// Extract the validation errors from a request.
+		const errors = validationResult(req);
+
+		if (!errors.isEmpty() || req.body.code !== req.user.username) {
+			// There are errors. Render form again with sanitized values/error messages.
+			const stringError = JSON.stringify(errors.array());
+			const parsedError = JSON.parse(stringError);
+
+			res.redirect('/settings');
+			return;
+		} else {
+			if (req.body.code === req.user.username) {
+				//Delete all posts by this account
+				Post.deleteMany({ author: req.user.id }, function (err) {
+					if (err) {
+						return next(err);
+					}
+				});
+
+				//Delete account
+				Account.findByIdAndDelete(req.user.id, function (err) {
+					if (err) {
+						return next(err);
+					}
+
+					//Logout of session
+					req.logout(function (err) {
+						if (err) {
+							return next(err);
+						}
+						res.redirect('/');
+					});
 				});
 			}
 		}

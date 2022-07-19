@@ -1,10 +1,2 @@
 {{> nav}}
 {{> codeinput}}
-{{#if user}}
-<section>
-  <form class="vflex" action="/delete-account" method="POST">
-    <input type="hidden" value={{user.id}}>
-    <button type="submit">Delete account</button>
-  </form>
-</section>
-{{/if}}
