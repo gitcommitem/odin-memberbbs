@@ -136,6 +136,10 @@ div.post-header {
 	margin-bottom: 0.5rem;
 }
 
+p.body {
+	margin-bottom: 0.5rem;
+}
+
 nav > ul.hflex {
 	gap: 1rem;
 }

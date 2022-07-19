@@ -1,7 +1,9 @@
 {{> nav}}
-<ul>
-  {{#each errors}}
-  <li>{{this.msg}}</li>
-  {{/each}}
-</ul>
+<section class="error-cont">
+  <ul>
+    {{#each errors}}
+    <li>{{this.msg}}</li>
+    {{/each}}
+  </ul>
+</section>
 {{> accountform}}
