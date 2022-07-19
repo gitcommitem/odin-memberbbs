@@ -36,5 +36,6 @@ router.post('/login', login_controller.login_post);
 router.post('/new-post', post_controller.post_new_post);
 router.post('/delete-post', post_controller.post_delete_post);
 router.post('/verify-member', verify_controller.verify_isMember_post);
+router.post('/verify-admin', verify_controller.verify_isAdmin_post);
 
 module.exports = router;
