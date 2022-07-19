@@ -1,6 +1,8 @@
 var bcrypt = require('bcryptjs');
 var Account = require('../models/account');
 
+const passport = require('passport');
+
 const { check, body, validationResult } = require('express-validator');
 
 exports.signup_post = [
@@ -35,28 +37,50 @@ exports.signup_post = [
 			});
 			return;
 		} else {
-			//Hash password
-			var hashedPassword = bcrypt.hash(req.body.password, 10, function (
-				err,
-				hash
-			) {
+			//Check if username is already taken
+			Account.findOne({
+				username: { $regex: `^${req.body.username}$`, $options: 'i' }
+			}).exec(function (err, takenUsername) {
 				if (err) {
 					return next(err);
-				} else {
-					// Create an account object with escaped and trimmed data along with hashed password
-					var account = new Account({
-						username: req.body.username,
-						password: hash,
-						isMember: false,
-						isAdmin: false
+				}
+				if (takenUsername) {
+					//Username is already taken, show error
+					const takenError = [
+						{
+							msg: `Sorry, the username ${req.body.username} is already taken`
+						}
+					];
+
+					res.render('signuplogin', {
+						errors: takenError
 					});
-					// Data from form is valid. Save account.
-					account.save(function (err) {
+					return;
+				} else {
+					//Username is available, go ahead and hash password
+					bcrypt.hash(req.body.password, 10, function (err, hash) {
 						if (err) {
 							return next(err);
+						} else {
+							// Create an account object with escaped and trimmed data along with hashed password
+							var account = new Account({
+								username: req.body.username,
+								password: hash,
+								isMember: false,
+								isAdmin: false
+							});
+							// Data from form is valid. Save account.
+							account.save(function (err) {
+								if (err) {
+									return next(err);
+								}
+								//successful - redirect.
+								passport.authenticate('local', {
+									successRedirect: '/',
+									failureRedirect: '/login'
+								})(req, res, next);
+							});
 						}
-						//successful - redirect.
-						res.redirect('/');
 					});
 				}
 			});
