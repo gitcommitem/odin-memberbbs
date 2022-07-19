@@ -2,6 +2,9 @@
 {{#unless user.isMember}}
 <section class="verification">
   <form class="vflex" action="/verify-member" method="POST">
+  {{#if failVerify}}
+  <p>Incorrect code.</p>
+  {{/if}}
     <label for="code">Verify your account by entering member code</label>
     <input type="text" name="code" id="code">
     <button type="submit">Verify account</button>
