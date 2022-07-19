@@ -1,6 +1,4 @@
-var async = require('async');
 var bcrypt = require('bcryptjs');
-
 var Account = require('../models/account');
 
 const { check, body, validationResult } = require('express-validator');
