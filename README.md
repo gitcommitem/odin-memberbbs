@@ -1,6 +1,6 @@
 # TOP Node.js Course Project - Members Only Message Board
 
-07/14/2022 ~
+07/14/2022 ~ 07/19/2022
 
 ## Objectives
 
@@ -15,3 +15,9 @@ Your site should have the following:
 - Admin users can delete posts
 
 ## Learnings
+
+Feels really nice to have everything coming together, I feel more comfortable with fetching and updating data with mongoose and displaying data with handlebars.
+
+Site code to become a member is github.
+
+Site code to become an admin is odinproject.
