@@ -32,11 +32,6 @@ body {
 	overflow-x: hidden;
 }
 
-ul {
-	padding: 0;
-	list-style: none;
-}
-
 div#page-cont {
 	width: 95vw;
 	margin-left: auto;
@@ -116,6 +111,15 @@ button {
 }
 
 /*Specific Components */
+nav > ul {
+	padding: 0;
+	list-style: none;
+}
+
+ul.error > li::marker {
+	content: '⚠️  ';
+}
+
 section#post-cont {
 	display: flex;
 	flex-direction: column-reverse;
@@ -147,4 +151,8 @@ nav > ul.hflex {
 section#new-post,
 section.verification {
 	margin-bottom: 2rem;
+}
+
+section.account-form > form > div.vflex:last-of-type {
+	margin-bottom: 1rem;
 }
