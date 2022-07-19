@@ -6,6 +6,9 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var bcrypt = require('bcryptjs');
 
+var compression = require('compression');
+var helmet = require('helmet');
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -63,6 +66,9 @@ passport.deserializeUser(function (id, done) {
 		done(err, account);
 	});
 });
+
+app.use(compression());
+app.use(helmet());
 
 //Login session + Passport
 app.use(
