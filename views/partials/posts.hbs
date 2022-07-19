@@ -1,19 +1,21 @@
-<section class="post-cont">
+<section id="post-cont">
   {{#each post}}
   <div class="post">
     {{#if ../user.isMember}}
-    <p>{{this.author.username}}</p>
-    {{else}}
-    <p>Anonymous</p>
-    {{/if}}
+    <div class="hflex post-header">
+      <p class="author">{{this.author.username}}</p>
     {{#if ../user.isAdmin}}
-    <form action="/delete" method="POST">
+    <form action="/delete-post" method="POST">
       <input type="hidden" value={{this.id}}>
-      <button type="submit">Delete</button>
+      <button type="submit">Delete this post</button>
     </form> 
     {{/if}}
-    <p>{{this.body}}</p>
-    <p>{{this.date}}</p>
+    </div>
+    {{else}}
+    <p class="author">名無しさん＠どーでもいいことだが</p>
+    {{/if}}
+    <p class="body">{{this.body}}</p>
+    <p class="timestamp">{{this.date}}</p>
   </div>
   {{else}}
   <p>No posts found.</p>

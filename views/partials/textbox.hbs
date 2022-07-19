@@ -1,6 +1,8 @@
 {{#if user.isMember}}
-<form action="/new-post" method="POST">
-<textarea name="body"></textarea>
-<button type="submit">Send post</button>
-</form>
+<section id="new-post">
+  <form class="vflex" action="/new-post" method="POST">
+  <textarea name="body" placeholder="自分の作品が一番萌えるよな？"></textarea>
+  <button type="submit">Send post</button>
+  </form>
+</section>
 {{/if}}

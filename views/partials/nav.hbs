@@ -1,6 +1,8 @@
-<nav>
-  <ul>
+<nav class="hflex">
+  <a href="/">自萌え同人ちゃんねる</a>
+  <ul class="hflex">
     {{#if user}}
+    <li><a href="/settings">Account Settings</a></li>
     <li><a href="/log-out">Log out</a></li>
     {{else}}
     <li><a href="/sign-up">Sign up</a></li>

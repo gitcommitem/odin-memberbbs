@@ -1,9 +1,11 @@
 {{#if user}}
 {{#unless user.isMember}}
-<form action="/verify-member" method="POST">
-  <label>Verify your account by entering member code:</label>
-  <input type="text" name="code">
-  <button type="submit">Verify account</button>
-</form>
+<section class="verification">
+  <form class="vflex" action="/verify-member" method="POST">
+    <label for="code">Verify your account by entering member code</label>
+    <input type="text" name="code" id="code">
+    <button type="submit">Verify account</button>
+  </form>
+</section>
 {{/unless}}
 {{/if}}

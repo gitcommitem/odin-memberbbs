@@ -1,29 +1,33 @@
 {{#if isLogin}}
-<form class="vflex" action="/login" method="POST">
-  <div class="vflex">
-    <label>Username</label>
-    <input type="text" name="username">
-  </div>
-  <div class="vflex">
-    <label>Password</label>
-    <input type="password" name="password">
-  </div>
-  <button type="submit">Log In</button>
-</form>
+<section>
+  <form class="vflex" action="/login" method="POST">
+    <div class="vflex">
+      <label>Username</label>
+      <input type="text" name="username">
+    </div>
+    <div class="vflex">
+      <label>Password</label>
+      <input type="password" name="password">
+    </div>
+    <button type="submit">Log In</button>
+  </form>
+</section>
 {{else}}
-<form class="vflex" action="/sign-up" method="POST">
-  <div class="vflex">
-    <label>Username</label>
-    <input type="text" name="username">
-  </div>
-  <div class="vflex">
-    <label>Password</label>
-    <input type="password" name="password">
-  </div>
-  <div class="vflex">
-    <label>Confirm Password</label>
-    <input type="password" name="confirmPassword">
-  </div>
-  <button type="submit">Create account</button>
-</form>
+<section>
+  <form class="vflex" action="/sign-up" method="POST">
+    <div class="vflex">
+      <label>Username</label>
+      <input type="text" name="username">
+    </div>
+    <div class="vflex">
+      <label>Password</label>
+      <input type="password" name="password">
+    </div>
+    <div class="vflex">
+      <label>Confirm Password</label>
+      <input type="password" name="confirmPassword">
+    </div>
+    <button type="submit">Create account</button>
+  </form>
+</section>
 {{/if}}

@@ -1,8 +1,142 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+:root,
+button,
+input,
+textarea {
+	font-family: arial, sans-serif;
+	font-size: 1rem;
 }
 
-a {
-  color: #00B7FF;
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p {
+	margin: 0;
+}
+
+/* Set core body defaults */
+body {
+	min-height: 100vh;
+	text-rendering: optimizeSpeed;
+	line-height: 1.5;
+	background-color: #f0f4f8;
+	overflow-x: hidden;
+}
+
+ul {
+	padding: 0;
+	list-style: none;
+}
+
+div#page-cont {
+	width: 95vw;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Utility classes */
+.hflex {
+	display: flex;
+}
+
+.vflex {
+	display: flex;
+	flex-direction: column;
+}
+
+/* Typography */
+a,
+.link-button {
+	color: #0a558c;
+}
+
+p.author {
+	font-weight: 800;
+	opacity: 0.8;
+}
+
+p.body {
+	line-height: 1.5;
+}
+
+p.timestamp {
+	font-size: 0.8rem;
+	opacity: 0.6;
+}
+
+/* General Components */
+nav {
+	justify-content: space-between;
+	align-items: center;
+}
+
+section {
+	max-width: 65ch;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+label {
+	margin-bottom: 0.5rem;
+}
+
+input,
+textarea {
+	margin-bottom: 1rem;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 0.5rem;
+	padding: 0.5rem;
+	font-size: 1rem;
+}
+
+textarea {
+	height: 15vh;
+	resize: none;
+}
+
+button {
+	background-color: #bcccdc;
+	border: 0;
+	border-radius: 0.5rem;
+	padding: 0.5rem 0.8rem;
+	color: #102a43;
+}
+
+/*Specific Components */
+section#post-cont {
+	display: flex;
+	flex-direction: column-reverse;
+}
+
+div.post {
+	background-color: white;
+	border: 1px solid rgba(0, 0, 0, 0.08);
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+	padding: 1rem;
+	margin-bottom: 2rem;
+	border-radius: 0.5rem;
+}
+
+div.post-header {
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 0.5rem;
+}
+
+nav > ul.hflex {
+	gap: 1rem;
+}
+
+section#new-post,
+section.verification {
+	margin-bottom: 2rem;
 }
