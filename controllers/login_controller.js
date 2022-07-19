@@ -23,7 +23,8 @@ exports.login_post = [
 			const parsedError = JSON.parse(stringError);
 
 			res.render('signuplogin', {
-				errors: parsedError
+				errors: parsedError,
+				isLogin: true
 			});
 			return;
 		} else {
