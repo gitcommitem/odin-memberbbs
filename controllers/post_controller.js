@@ -41,3 +41,12 @@ exports.post_new_post = [
 		}
 	}
 ];
+
+exports.post_delete_post = function (req, res, next) {
+	Post.findByIdAndDelete(req.body.id, function deleteItem (err) {
+		if (err) {
+			return next(err);
+		}
+		res.redirect('/');
+	});
+};

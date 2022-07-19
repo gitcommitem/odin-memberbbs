@@ -29,5 +29,6 @@ router.get('/log-out', function (req, res, next) {
 router.post('/sign-up', signup_controller.signup_post);
 router.post('/login', login_controller.login_post);
 router.post('/new-post', post_controller.post_new_post);
+router.post('/delete-post', post_controller.post_delete_post);
 
 module.exports = router;

@@ -6,7 +6,7 @@
       <p class="author">{{this.author.username}}</p>
     {{#if ../user.isAdmin}}
     <form action="/delete-post" method="POST">
-      <input type="hidden" value={{this.id}}>
+      <input type="hidden" name="id" value={{this.id}}>
       <button type="submit">Delete this post</button>
     </form> 
     {{/if}}
