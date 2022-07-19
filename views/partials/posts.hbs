@@ -1,12 +1,12 @@
 <section class="post-cont">
   {{#each post}}
   <div class="post">
-    {{#if user.isMember}}
-    <p>{{this.author}}</p>
+    {{#if ../user.isMember}}
+    <p>{{this.author.username}}</p>
     {{else}}
     <p>Anonymous</p>
     {{/if}}
-    {{#if user.isAdmin}}
+    {{#if ../user.isAdmin}}
     <form action="/delete" method="POST">
       <input type="hidden" value={{this.id}}>
       <button type="submit">Delete</button>

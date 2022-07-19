@@ -1,16 +1,13 @@
 var express = require('express');
 var router = express.Router();
 
+var index_controller = require('../controllers/index_controller');
 var signup_controller = require('../controllers/signup_controller');
 var login_controller = require('../controllers/login_controller');
 var post_controller = require('../controllers/post_controller');
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
-	res.render('index', {
-		user: req.user
-	});
-});
+router.get('/', index_controller.index);
 
 router.get('/sign-up', function (req, res, next) {
 	res.render('signuplogin');
