@@ -1,6 +1,25 @@
-{{#if user}}
-{{#unless user.isMember}}
+{{#if isSettings}}
+
+{{#if user.isMember}}
+{{#unless user.isAdmin}}
 <section class="verification">
+  <form class="vflex" action="/verify-admin" method="POST">
+  {{#if failVerify}}
+  <p>Incorrect code.</p>
+  {{/if}}
+    <label for="code">Enter admin code</label>
+    <input type="text" name="code" id="code">
+    <button type="submit">Request admin role</button>
+  </form>
+</section>
+{{/unless}}
+{{/if}}
+
+{{else}}
+
+  {{#if user}}
+  {{#unless user.isMember}}
+  <section class="verification">
   <form class="vflex" action="/verify-member" method="POST">
   {{#if failVerify}}
   <p>Incorrect code.</p>
@@ -9,6 +28,8 @@
     <input type="text" name="code" id="code">
     <button type="submit">Verify account</button>
   </form>
-</section>
-{{/unless}}
+  </section>
+  {{/unless}}
+  {{/if}}
+
 {{/if}}

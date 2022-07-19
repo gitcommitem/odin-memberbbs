@@ -18,6 +18,10 @@ router.get('/login', function (req, res, next) {
 	res.render('signuplogin', { isLogin: true });
 });
 
+router.get('/settings', function (req, res, next) {
+	res.render('settings', { isSettings: true, user: req.user });
+});
+
 router.get('/log-out', function (req, res, next) {
 	req.logout(function (err) {
 		if (err) {
