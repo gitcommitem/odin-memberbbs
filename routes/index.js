@@ -3,6 +3,7 @@ var router = express.Router();
 
 var signup_controller = require('../controllers/signup_controller');
 var login_controller = require('../controllers/login_controller');
+var post_controller = require('../controllers/post_controller');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -21,5 +22,6 @@ router.get('/login', function (req, res, next) {
 
 router.post('/sign-up', signup_controller.signup_post);
 router.post('/login', login_controller.login_post);
+router.post('/new-post', post_controller.post_new_post);
 
 module.exports = router;
