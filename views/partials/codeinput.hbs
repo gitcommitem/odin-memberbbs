@@ -1,0 +1,9 @@
+{{#if user}}
+{{#unless user.isMember}}
+<form action="/verify-member" method="POST">
+  <label>Verify your account by entering member code:</label>
+  <input type="text" name="code">
+  <button type="submit">Verify account</button>
+</form>
+{{/unless}}
+{{/if}}
